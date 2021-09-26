@@ -8,3 +8,4 @@ dependencies {
     diDependencies()
     implementation(project(FeaturesDependency.search))
 }
+

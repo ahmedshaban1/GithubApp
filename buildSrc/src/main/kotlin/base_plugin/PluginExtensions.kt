@@ -25,17 +25,27 @@ internal fun Project.configureAndroidApp() = this.extensions.getByType<AndroidBa
         versionName = AndroidConfig.VERSION_NAME
         testInstrumentationRunner = AndroidConfig.TEST_INSTRUMENTATION_RUNNER
 
-        buildTypes {
-            getByName(BuildType.DEBUG) {
-                isTestCoverageEnabled = true
-            }
-            getByName(BuildType.RELEASE) {
-                isMinifyEnabled = false
-                proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-            }
+    }
+    signingConfigs {
+        create("releaseConfig") {
+            storeFile = file("../ks.jks")
+            storePassword = "123456"
+            keyAlias = "ahmed"
+            keyPassword = "123456"
         }
     }
 
+
+    buildTypes {
+        getByName(BuildType.DEBUG) {
+            isTestCoverageEnabled = true
+        }
+        getByName(BuildType.RELEASE) {
+            signingConfig = signingConfigs.getByName("releaseConfig")
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+        }
+    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

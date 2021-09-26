@@ -2,6 +2,7 @@ package com.task.remote.di
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.task.MockInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -28,5 +29,7 @@ fun getRemoteModule(baseUrl: String) = module {
             .setLevel(HttpLoggingInterceptor.Level.BODY)
     }
 
-    factory { OkHttpClient.Builder().addInterceptor(get()).build() }
+    factory {
+        OkHttpClient.Builder().addInterceptor(get()).addInterceptor(MockInterceptor(get())).build()
+    }
 }
