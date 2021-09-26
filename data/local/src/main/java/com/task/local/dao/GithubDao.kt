@@ -11,7 +11,7 @@ import com.task.model.GithubRepo
 interface GithubDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(vararg githubRepo: GithubRepo)
+    suspend fun insert(githubRepo: List<GithubRepo>)
 
     @Query("select * from GITHUBREPO")
     suspend fun getAllRepos(): List<GithubRepo>

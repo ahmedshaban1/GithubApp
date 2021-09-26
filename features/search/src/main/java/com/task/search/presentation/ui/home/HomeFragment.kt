@@ -1,4 +1,4 @@
-package com.task.search.ui.search
+package com.task.search.presentation.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.task.search.databinding.FragmentSearchBinding
+import com.task.search.databinding.FragmentHomeBinding
 
-class SearchFragment : Fragment() {
+class HomeFragment : Fragment() {
 
-    private var _binding: FragmentSearchBinding? = null
+    private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,11 +22,10 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
-        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
+        val textView: TextView = binding.textHome
 
         return root
     }

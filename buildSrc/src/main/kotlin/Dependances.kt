@@ -12,7 +12,6 @@ object AndroidConfig {
     const val TARGET_SDK_VERSION = 30
     const val VERSION_CODE = 1
     const val VERSION_NAME = "1"
-    const val ID = "com.task.comicapp"
     const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
 }
 

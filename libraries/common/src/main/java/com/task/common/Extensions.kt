@@ -8,11 +8,12 @@ import android.widget.ImageView
 import com.squareup.picasso.Picasso
 
 // load image from url or res id
-fun ImageView.loadImage(url: Any?) {
+fun ImageView.loadImage(url: Any?, placeHolderResId: Int) {
     url?.let {
         if (url is Int) {
             Picasso.get()
                 .load(url)
+                .placeholder(placeHolderResId)
                 .into(this)
 
             setImageResource(url)
@@ -28,6 +29,11 @@ fun ImageView.loadImage(url: Any?) {
 // make view visible extension
 fun View.visible() {
     visibility = View.VISIBLE
+}
+
+// make view gone extension
+fun View.gone() {
+    visibility = View.GONE
 }
 
 

@@ -1,4 +1,4 @@
-package com.task.search
+package com.task.search.presentation.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.task.search.R
 import com.task.search.databinding.ActivitySearchBinding
 
 class SearchActivity : AppCompatActivity() {

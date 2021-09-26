@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 // Model for remote response
+data class GithubSearchResponse(val items:ArrayList<GithubRepoRemote>)
 data class Owner(@SerializedName("avatar_url") var avatarUrl: String?)
 data class GithubRepoRemote(
     var id: Int,
