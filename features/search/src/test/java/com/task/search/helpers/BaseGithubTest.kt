@@ -21,7 +21,6 @@ open class BaseGithubTest {
     @get:Rule
     var coroutinesMainDispatcherRule = CoroutinesMainDispatcherRule()
     var githubRepository = mockk<GithubRepository>()
-    var collector: FlowCollector<Resource<GithubRepo>> = mockk(relaxed = true)
     var collectorList: FlowCollector<Resource<List<GithubRepo>>> = mockk(relaxed = true)
     val fakeGithubRepos = FakeData.fakeGithubRepos(10)
     val messageType = MessageType.Toast(0, null)
