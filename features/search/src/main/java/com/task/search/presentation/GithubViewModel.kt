@@ -12,8 +12,8 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class GithubViewModel(
-    val getReposUseCase: GetReposUseCase,
-    val searchReposUseCase: SearchReposUseCase
+    private val getReposUseCase: GetReposUseCase,
+    private val searchReposUseCase: SearchReposUseCase
 ) : ViewModel() {
     private val _searchReposStateFlow: MutableStateFlow<Resource<List<GithubRepo>>> =
         MutableStateFlow(Resource.init())
@@ -36,7 +36,7 @@ class GithubViewModel(
         }
     }
 
-    fun getRepos(query: String) {
+    fun getRepos() {
         viewModelScope.launch {
             getReposUseCase()
                 .collect {
